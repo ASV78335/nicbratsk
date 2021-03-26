@@ -1,0 +1,26 @@
+@media (max-width: 767px) {
+    .menu {
+        position: fixed;
+        flex-direction: column;
+        top: 0px;
+        left: -100%;
+        width: 50%;
+        height: 100vh;
+        padding: 1px 1px;
+        background-color: rgba(0, 0, 0, 0.8);
+        transition: 0.6s all;
+    }
+
+    .menu_active {
+        left: 0;
+    }
+
+    .menu .menu_item {
+        border: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+}
