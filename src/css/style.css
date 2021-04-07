@@ -782,6 +782,56 @@ footer {
     color: #ffffff;
 }
 
+.overlay {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    min-height: 400px;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.modal_close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -40px;
+    font-size: 40px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.pageup {
+    display: none;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 40px;
+    right: 40px;
+}
+
+.pageup img {
+    width: 100%;
+}
+
+.heart_anim {
+    animation-name: heartbeat;
+    animation-duration: 1s;
+}
+
+
 @media (max-width: 767px) {
     .menu {
         position: fixed;

@@ -40,7 +40,7 @@
     <section class="promo">
         <div class="container">
             <div class="arrow_prev"><img src="icons/arrow_prev.png" alt="arrow_prev"></div>
-            <div class="sout">
+            <div class="sout slider">
                 <div class="sout_logo">
                     <img src="img/promo_sout.png" alt="Специальная оценка условий труда">
                 </div>
@@ -51,7 +51,7 @@
                     <div class="arrow_btn"><img src="icons/arrow.png" alt="arrow"></div>
                 </div>
             </div>
-            <div class="prkontrol">
+            <div class="prkontrol slider">
                 <div class="pk_logo">
                     <img src="img/promo_pk.png" alt="Производственный контроль">
                 </div>
@@ -259,6 +259,31 @@
 
     </div>
 </footer>
+
+<div class="overlay">
+    <div class="modal">
+        <div class="modal_close">&times;</div>
+        <div class="modal_subtitle">
+
+        </div>
+        <div class="modal_descr">
+            <form action="post" class="footer_form">
+                <input type="text" required name="name" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspВаше имя *">
+                <input type="number" required name="phone" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspВаш номер телефона *">
+                <input type="email" required name="email" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspВаш e-mail *">
+                <button class=btn_wrapper>
+                    <div class="more_btn"><span>Отправить</span></div>
+                    <div class="arrow_btn"><img src="icons/arrow.png" alt="arrow"></div>
+                </button>
+        </form> 
+
+        </div>
+    </div>
+</div>
+
+<a href="#" class="pageup">
+    <img src="icons/up.svg" alt="up" >
+</a>
 <script src="js/script.js"></script>
 </body>
 </html>

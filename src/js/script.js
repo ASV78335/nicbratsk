@@ -87,3 +87,31 @@ nd_order_items.forEach(function(item) {
 
 // При открытии страницы по умолчанию открыта вкладка #2
 nd_order_items[1].click();
+
+// =================================================================
+// PageUp
+
+const pageup = document.querySelector('.pageup');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 1000) {
+        pageup.style.display = 'block';
+    }
+    else {
+        pageup.style.display = 'none';
+    }
+})
+
+
+
+// =================================================================
+// Slider
+
+
+const arrow_prev = document.querySelector('.arrow_prev');
+const arrow_next = document.querySelector('.arrow_next');
+const slider = document.querySelectorAll('.slider');
+
+arrow_prev.addEventListener('click', function() {
+
+})
