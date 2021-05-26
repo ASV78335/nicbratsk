@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 html {
@@ -310,6 +311,17 @@ html {
     cursor: pointer;
 }
 
+.arrow_prev_disable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #cccccc;
+    border-radius: 2px;
+    cursor: none;
+}
+
 .arrow_next {
     display: flex;
     justify-content: center;
@@ -318,6 +330,18 @@ html {
     height: 40px;
     box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.3), inset 0px 1px 0 0 rgba(255, 255, 255, 0.16);
     background-color: #8ad6f2;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.arrow_next_disable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    /* box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.3), inset 0px 1px 0 0 rgba(255, 255, 255, 0.16); */
+    background-color: #cccccc;
     border-radius: 2px;
     cursor: pointer;
 }
@@ -511,7 +535,9 @@ h2 {
     cursor: initial;
 }
 
-.about_block {
+.about_block,
+.about_block_person {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -554,7 +580,7 @@ h2 {
     color: rgb(68, 68, 68);
 }
 
-.about_block_person {
+.about_block_person_item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -562,13 +588,14 @@ h2 {
     padding: 20px 0 20px 0;
     max-width: 150px;
     height: 320px;
+    cursor: pointer;
 }
 
-.about_block_person:hover {
+.about_block_person_item:hover {
     border-bottom: 3px solid #67bddd;
 }
 
-.about_block_person img {
+.about_block_person_item img {
     max-width: 150px;
 }
 
@@ -585,20 +612,6 @@ h2 {
     font-size: 12px;
     font-weight: normal;
     color: rgb(68, 68, 68);
-}
-
-.about_block_contacts .logo {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin: 32px auto;
-    font-size: 27px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.54px;
-    color: #a0a0a0;
 }
 
 .about_block_contacts .mail,
@@ -639,10 +652,11 @@ h2 {
     color: #444444;
 }
 
-.about_block_contacts address {
-    display: inline-block;
+.about_block_contacts .address {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-bottom: 20px;
-    padding-left: 15px;
     font-size: 19px;
     font-weight: 300;
     font-stretch: normal;
@@ -654,12 +668,36 @@ h2 {
     color: #444444;
 }
 
+.about_block_contacts .address img {
+    padding-right: 15px;
+}
 
+.certs_gallery {
+    position: absolute;
+    top: 300px;
+    left: 0px;
+    display: block;
+    min-height: 240px;
+    min-width: 600px;
+}
 
+.certs_gallery img {
+    margin: 0 10px;
+    height: 140px;
+    cursor: pointer;
+}
 
+.serts_frame {
+    position: absolute;
+    top: 380px;
+    height: 500px;
+    width: 500px;
+}
 
-
-
+.serts_frame img {
+    width: 100px;
+    border: 2px solid rgba(197, 197, 197, 0.6);
+}
 
 
 

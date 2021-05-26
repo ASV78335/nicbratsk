@@ -182,7 +182,7 @@ window.addEventListener('DOMContentLoaded', () => {
         hideTabContent();
         showTabContent();
         
-        function showTabContent(i = 0) {
+        function showTabContent(i = 1) {
             blocks[i].style.display = 'flex';
             tabs[i].classList.add('active');
         };
@@ -207,23 +207,192 @@ window.addEventListener('DOMContentLoaded', () => {
     // =================================================================
     
     const expertsGallery = () => {
-        const experts = document.querySelectorAll('.about_block_person');
+        const experts = document.querySelectorAll('.about_block_person_item');
+        const left_btn = document.querySelector('.person_scroll_left');
+        const right_btn = document.querySelector('.person_scroll_right');
+        const left_btn_disable = document.querySelector('.person_scroll_left_disable');
+        const right_btn_disable = document.querySelector('.person_scroll_right_disable');
+        
+        left_btn.style.display = 'none';
+        left_btn_disable.style.display = 'flex';
+        right_btn.style.display = 'flex';
+        right_btn_disable.style.display = 'none';
         let currentPos = 0;
+
+        setCurrent(currentPos);
 
         function setCurrent(n) {
             experts.forEach(item => {
                 item.style.display = 'none';
             });
-        let i = n;
-        for (let i = n; i < n + 3; i++) {
-            experts[i].style.display = 'block';
-        }
-
+            for (let i = 0; i < 4; i++) {
+            experts[n + i].style.display = 'flex';
+            };
         };
+        
+        left_btn.addEventListener('click', () => {
+            currentPos--;
+            if (currentPos < 0) {
+                currentPos = 0;
+                left_btn.style.display = 'none';
+                left_btn_disable.style.display = 'flex';
+            };
+            right_btn.style.display = 'flex';
+            right_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
 
-        setCurrent(0);
+        right_btn.addEventListener('click', () => {
+            currentPos++;
+            if (currentPos > experts.length - 4) {
+                currentPos = experts.length - 4
+                right_btn.style.display = 'none';
+                right_btn_disable.style.display = 'flex';
+            };
+            left_btn.style.display = 'flex';
+            left_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
+
+        experts.forEach((item, i) => {
+            item.addEventListener('click', () => {
+
+            });
+         });
+        
+
     };
 
+    const showCerts = () => {
+        const about = document.querySelector('.about_blocks');
+        let frameWidth = document.querySelector('.about_blocks').clientWidth;
+        const experts = document.querySelectorAll('.about_block_person_item');
+        const expertsWrap = document.querySelector('.about_block_person');
+
+        let certsWrap = document.createElement('div');
+        certsWrap.classList.add('certs_gallery');
+        certsWrap.style.display = 'none';
+        certsWrap.style.justifyContent = 'center';
+        certsWrap.style.alignItems = 'center';
+        certsWrap.style.width = frameWidth + 'px';
+
+        let imageFrame = document.createElement('div');
+        imageFrame.classList.add('certs_frame');
+        imageFrame.style.display = 'none';
+        imageFrame.style.justifyContent = 'center';
+        imageFrame.style.alignItems = 'center';
+        imageFrame.style.width = frameWidth + 'px';
+
+        about.appendChild(imageFrame);
+
+        const certsAntonov = ['./img/Certs/Antonov/Page1.jpg'];
+        const certsErikova = ['./img/Certs/Erikova/Page1.jpg', './img/Certs/Erikova/Page2.jpg', './img/Certs/Erikova/Page3.jpg', './img/Certs/Erikova/Page4.jpg'];
+        const certsGainullin = ['./img/Certs/Gainullin/Page1.jpg', './img/Certs/Gainullin/Page2.jpg', './img/Certs/Gainullin/Page3.jpg', './img/Certs/Gainullin/Page4.jpg'];
+        const certsKarneev = ['./img/Certs/Karneev/Page1.jpg'];
+        const certsOrl = ['./img/Certs/Orl/Page1.jpg', './img/Certs/Orl/Page2.jpg', './img/Certs/Orl/Page3.jpg', './img/Certs/Orl/Page4.jpg', './img/Certs/Orl/Page5.jpg'];
+        const certsSkor = ['./img/Certs/Skor/Page1.jpg', './img/Certs/Skor/Page2.jpg', './img/Certs/Skor/Page3.jpg', './img/Certs/Skor/Page4.jpg', './img/Certs/Skor/Page5.jpg'];
+
+        expertsWrap.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target;
+
+            if (imageFrame.firstChild != null) {
+                imageFrame.removeChild(imageFrame.firstChild);
+            };
+
+            let fc = certsWrap.firstChild;
+            while (fc) {
+                certsWrap.removeChild(fc);
+                fc = certsWrap.firstChild;
+            }
+
+            if (target && target.classList.contains('about_block_person_item') || 
+            target.parentNode.classList.contains('about_block_person_item')) {
+                about.appendChild(certsWrap);
+                        experts.forEach((item, i) => {
+                    if ((item == target) || (item == target.parentNode)) {
+                        switch (i) {
+                            case i = 0: 
+                            for (let k = 0; k < certsOrl.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsOrl[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+
+                            case i = 1: 
+                            for (let k = 0; k < certsSkor.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsSkor[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+                            case i = 3:
+                            for (let k = 0; k < certsErikova.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsErikova[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+                            case i = 4:
+                            for (let k = 0; k < certsGainullin.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsGainullin[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+                            case i = 5:
+                            for (let k = 0; k < certsAntonov.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsAntonov[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+                            case i = 6:
+                            for (let k = 0; k < certsKarneev.length; k++) {
+                                let image = document.createElement('img');
+                                let path = certsKarneev[k];
+                                image.setAttribute('src', path);
+                                certsWrap.appendChild(image);
+                            }
+                            break;
+                        }
+        
+                    }
+
+                });
+
+                certsWrap.style.display = 'flex';
+                };
+
+        });
+        certsWrap.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target;
+
+                // imageFrame.removeChild(imageFrame.firstChild) 
+
+            const bigImage = document.createElement('img');
+            const path = target.getAttribute('src');
+            bigImage.setAttribute('src', path);
+            bigImage.setAttribute('width', frameWidth + 'px');
+            if (imageFrame.firstChild != null) {
+                imageFrame.removeChild(imageFrame.firstChild);
+            };
+            imageFrame.style.display = 'flex';
+            imageFrame.appendChild(bigImage);
+
+                
+
+        });
+        
+
+    };
 
 
 
@@ -237,6 +406,6 @@ window.addEventListener('DOMContentLoaded', () => {
     aboutTabs();
     ndTabs();
     expertsGallery();
-    
+    showCerts();
 });
 
