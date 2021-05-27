@@ -1,6 +1,24 @@
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    const scroll = calcScroll();
+
+    function calcScroll() {
+        let div = document.createElement('div');
+        div.style.width = '50px';
+        div.style.height = '50px';
+        div.style.overflow = 'scroll';
+        div.style.visibility = 'hidden';
+
+        document.body.appendChild(div);
+        let scrollWidth = div.offsetWidth - div.clientWidth;
+        div.remove();
+
+        return scrollWidth;
+    };
+
+
+
     // =================================================================
     // Adaptive menu
     // =================================================================
@@ -99,14 +117,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // =================================================================
     
     const arrowUp = () => {
-        const pageup = document.querySelector('.pageup');
+        const pageUp = document.querySelector('.pageup');
+        
     
         window.addEventListener('scroll', function() {
             if (window.scrollY > 1000) {
-                pageup.style.display = 'block';
+                pageUp.style.display = 'block';
             }
             else {
-                pageup.style.display = 'none';
+                pageUp.style.display = 'none';
             }
         });
     };
@@ -182,7 +201,7 @@ window.addEventListener('DOMContentLoaded', () => {
         hideTabContent();
         showTabContent();
         
-        function showTabContent(i = 1) {
+        function showTabContent(i = 2) {
             blocks[i].style.display = 'flex';
             tabs[i].classList.add('active');
         };
@@ -232,8 +251,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         left_btn.addEventListener('click', () => {
             currentPos--;
-            if (currentPos < 0) {
-                currentPos = 0;
+            if (currentPos == 0) {
                 left_btn.style.display = 'none';
                 left_btn_disable.style.display = 'flex';
             };
@@ -244,8 +262,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         right_btn.addEventListener('click', () => {
             currentPos++;
-            if (currentPos > experts.length - 4) {
-                currentPos = experts.length - 4
+            if (currentPos == experts.length - 4) {
+                currentPos = experts.length - 4;
                 right_btn.style.display = 'none';
                 right_btn_disable.style.display = 'flex';
             };
@@ -263,34 +281,40 @@ window.addEventListener('DOMContentLoaded', () => {
 
     };
 
-    const showCerts = () => {
-        const about = document.querySelector('.about_blocks');
-        let frameWidth = document.querySelector('.about_blocks').clientWidth;
+    const showSerts = () => {
         const experts = document.querySelectorAll('.about_block_person_item');
         const expertsWrap = document.querySelector('.about_block_person');
+            
+        let wrap = document.createElement('div');
+        wrap.classList.add('wrap');
+        wrap.style.display = 'none';
+        document.body.appendChild(wrap);
+        
 
-        let certsWrap = document.createElement('div');
-        certsWrap.classList.add('certs_gallery');
-        certsWrap.style.display = 'none';
-        certsWrap.style.justifyContent = 'center';
-        certsWrap.style.alignItems = 'center';
-        certsWrap.style.width = frameWidth + 'px';
+        let sertsWrap = document.createElement('div');
+        sertsWrap.classList.add('serts_gallery');
+        sertsWrap.style.display = 'none';
+        wrap.appendChild(sertsWrap);
 
         let imageFrame = document.createElement('div');
-        imageFrame.classList.add('certs_frame');
+        imageFrame.classList.add('serts_frame');
         imageFrame.style.display = 'none';
-        imageFrame.style.justifyContent = 'center';
-        imageFrame.style.alignItems = 'center';
-        imageFrame.style.width = frameWidth + 'px';
+        wrap.appendChild(imageFrame);
 
-        about.appendChild(imageFrame);
+        const sertsAntonov = ['./img/Certs/Antonov/Page1.jpg'];
+        const sertsErikova = ['./img/Certs/Erikova/Page1.jpg', './img/Certs/Erikova/Page2.jpg', './img/Certs/Erikova/Page3.jpg', './img/Certs/Erikova/Page4.jpg'];
+        const sertsGainullin = ['./img/Certs/Gainullin/Page1.jpg', './img/Certs/Gainullin/Page2.jpg', './img/Certs/Gainullin/Page3.jpg', './img/Certs/Gainullin/Page4.jpg'];
+        const sertsKarneev = ['./img/Certs/Karneev/Page1.jpg'];
+        const sertsOrl = ['./img/Certs/Orl/Page1.jpg', './img/Certs/Orl/Page2.jpg', './img/Certs/Orl/Page3.jpg', './img/Certs/Orl/Page4.jpg', './img/Certs/Orl/Page5.jpg'];
+        const sertsSkor = ['./img/Certs/Skor/Page1.jpg', './img/Certs/Skor/Page2.jpg', './img/Certs/Skor/Page3.jpg', './img/Certs/Skor/Page4.jpg', './img/Certs/Skor/Page5.jpg'];
 
-        const certsAntonov = ['./img/Certs/Antonov/Page1.jpg'];
-        const certsErikova = ['./img/Certs/Erikova/Page1.jpg', './img/Certs/Erikova/Page2.jpg', './img/Certs/Erikova/Page3.jpg', './img/Certs/Erikova/Page4.jpg'];
-        const certsGainullin = ['./img/Certs/Gainullin/Page1.jpg', './img/Certs/Gainullin/Page2.jpg', './img/Certs/Gainullin/Page3.jpg', './img/Certs/Gainullin/Page4.jpg'];
-        const certsKarneev = ['./img/Certs/Karneev/Page1.jpg'];
-        const certsOrl = ['./img/Certs/Orl/Page1.jpg', './img/Certs/Orl/Page2.jpg', './img/Certs/Orl/Page3.jpg', './img/Certs/Orl/Page4.jpg', './img/Certs/Orl/Page5.jpg'];
-        const certsSkor = ['./img/Certs/Skor/Page1.jpg', './img/Certs/Skor/Page2.jpg', './img/Certs/Skor/Page3.jpg', './img/Certs/Skor/Page4.jpg', './img/Certs/Skor/Page5.jpg'];
+        wrap.addEventListener('click', (e) => {
+            if (e.target === wrap) {
+                document.body.style.overflow = '';
+                document.body.style.marginRight = `0px`;
+                wrap.style.display = 'none';
+            }
+        });
 
         expertsWrap.addEventListener('click', (e) => {
             e.preventDefault();
@@ -300,65 +324,70 @@ window.addEventListener('DOMContentLoaded', () => {
                 imageFrame.removeChild(imageFrame.firstChild);
             };
 
-            let fc = certsWrap.firstChild;
+            let fc = sertsWrap.firstChild;
             while (fc) {
-                certsWrap.removeChild(fc);
-                fc = certsWrap.firstChild;
+                sertsWrap.removeChild(fc);
+                fc = sertsWrap.firstChild;
             }
 
             if (target && target.classList.contains('about_block_person_item') || 
             target.parentNode.classList.contains('about_block_person_item')) {
-                about.appendChild(certsWrap);
-                        experts.forEach((item, i) => {
+                document.body.style.overflow = 'hidden';
+                document.body.style.marginRight = `${scroll}px`;
+                wrap.style.display = 'flex';
+                experts.forEach((item, i) => {
                     if ((item == target) || (item == target.parentNode)) {
                         switch (i) {
                             case i = 0: 
-                            for (let k = 0; k < certsOrl.length; k++) {
+                            for (let k = 0; k < sertsOrl.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsOrl[k];
+                                let path = sertsOrl[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
 
                             case i = 1: 
-                            for (let k = 0; k < certsSkor.length; k++) {
+                            for (let k = 0; k < sertsSkor.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsSkor[k];
+                                let path = sertsSkor[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
+                            case i = 2:
+                                wrap.style.display = 'none';
+                                break;                            
                             case i = 3:
-                            for (let k = 0; k < certsErikova.length; k++) {
+                            for (let k = 0; k < sertsErikova.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsErikova[k];
+                                let path = sertsErikova[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
                             case i = 4:
-                            for (let k = 0; k < certsGainullin.length; k++) {
+                            for (let k = 0; k < sertsGainullin.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsGainullin[k];
+                                let path = sertsGainullin[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
                             case i = 5:
-                            for (let k = 0; k < certsAntonov.length; k++) {
+                            for (let k = 0; k < sertsAntonov.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsAntonov[k];
+                                let path = sertsAntonov[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
                             case i = 6:
-                            for (let k = 0; k < certsKarneev.length; k++) {
+                            for (let k = 0; k < sertsKarneev.length; k++) {
                                 let image = document.createElement('img');
-                                let path = certsKarneev[k];
+                                let path = sertsKarneev[k];
                                 image.setAttribute('src', path);
-                                certsWrap.appendChild(image);
+                                sertsWrap.appendChild(image);
                             }
                             break;
                         }
@@ -367,35 +396,229 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 });
 
-                certsWrap.style.display = 'flex';
+                sertsWrap.style.display = 'flex';
                 };
 
         });
-        certsWrap.addEventListener('click', (e) => {
+        sertsWrap.addEventListener('click', (e) => {
             e.preventDefault();
             let target = e.target;
 
-                // imageFrame.removeChild(imageFrame.firstChild) 
+            let images = sertsWrap.querySelectorAll('img');
 
-            const bigImage = document.createElement('img');
-            const path = target.getAttribute('src');
-            bigImage.setAttribute('src', path);
-            bigImage.setAttribute('width', frameWidth + 'px');
-            if (imageFrame.firstChild != null) {
-                imageFrame.removeChild(imageFrame.firstChild);
-            };
-            imageFrame.style.display = 'flex';
-            imageFrame.appendChild(bigImage);
+            images.forEach(item => {
+                if (target == item) {
 
-                
+                    const bigImage = document.createElement('img');
+                    const path = target.getAttribute('src');
+                    bigImage.setAttribute('src', path);
+        
+                    if (imageFrame.firstChild != null) {
+                        imageFrame.removeChild(imageFrame.firstChild);
+                    };
+                    imageFrame.style.display = 'flex';
+                    imageFrame.appendChild(bigImage);
+        
+                };
+
+            });
+               
 
         });
+
         
 
     };
 
 
+    // =================================================================
+    // Docs view
+    // =================================================================
 
+    const showDocs = () => {
+        const aboutDocs = document.querySelector('.about_block_docs');
+        const docs = document.querySelectorAll('.about_block_doc');
+
+        let wrap = document.createElement('div');
+        wrap.classList.add('wrap');
+        wrap.style.display = 'none';
+        document.body.appendChild(wrap);
+        
+        let imageFrame = document.createElement('div');
+        imageFrame.classList.add('docs_frame');
+        imageFrame.style.display = 'none';
+        wrap.appendChild(imageFrame);
+
+        wrap.addEventListener('click', (e) => {
+            if (e.target === wrap) {
+                document.body.style.overflow = '';
+                document.body.style.marginRight = `0px`;
+                wrap.style.display = 'none';
+            }
+        });
+
+
+        aboutDocs.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target;
+            let path = '';
+
+            if (target && target.classList.contains('about_block_doc') || 
+            target.parentNode.classList.contains('about_block_doc') ||
+            target.parentNode.parentNode.classList.contains('about_block_doc')) {
+
+                docs.forEach((item, i) => {
+
+                    if ((item == target) || (item == target.parentNode) || (item == target.parentNode.parentNode)) {
+                        document.body.style.overflow = 'hidden';
+                        document.body.style.marginRight = `${scroll}px`;
+                        wrap.style.display = 'flex';
+
+                        if (target.hasAttribute('href')) {
+                            path = target.getAttribute('href');
+                        };
+                        if (target.parentNode.hasAttribute('href')) {
+                            path = target.parentNode.getAttribute('href');
+                        };
+                        if (target.parentNode.parentNode.hasAttribute('href')) {
+                            path = target.parentNode.parentNode.getAttribute('href');
+                        };
+                        
+                        const bigImage = document.createElement('img');
+                        bigImage.setAttribute('src', path);
+            
+                        if (imageFrame.firstChild != null) {
+                            imageFrame.removeChild(imageFrame.firstChild);
+                        };
+                        imageFrame.style.display = 'flex';
+                        imageFrame.appendChild(bigImage);
+                                    
+                    }
+                });
+            }
+
+
+        });
+
+
+    };
+
+
+    // =================================================================
+    // Equipment gallery
+    // =================================================================
+    
+    const equipmentGallery = () => {
+        const equip = document.querySelectorAll('.about_block_equip_item');
+        const left_btn = document.querySelector('.equip_scroll_left');
+        const right_btn = document.querySelector('.equip_scroll_right');
+        const left_btn_disable = document.querySelector('.equip_scroll_left_disable');
+        const right_btn_disable = document.querySelector('.equip_scroll_right_disable');
+        
+        left_btn.style.display = 'none';
+        left_btn_disable.style.display = 'flex';
+        right_btn.style.display = 'flex';
+        right_btn_disable.style.display = 'none';
+        let currentPos = 0;
+
+        setCurrent(currentPos);
+
+        function setCurrent(n) {
+            equip.forEach(item => {
+                item.style.display = 'none';
+            });
+            for (let i = 0; i < 4; i++) {
+            equip[n + i].style.display = 'flex';
+            };
+        };
+        
+        left_btn.addEventListener('click', () => {
+            currentPos--;
+            if (currentPos == 0) {
+                left_btn.style.display = 'none';
+                left_btn_disable.style.display = 'flex';
+            };
+            right_btn.style.display = 'flex';
+            right_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
+
+        right_btn.addEventListener('click', () => {
+            currentPos++;
+            if (currentPos == equip.length - 4) {
+                currentPos = equip.length - 4;
+                right_btn.style.display = 'none';
+                right_btn_disable.style.display = 'flex';
+            };
+            left_btn.style.display = 'flex';
+            left_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
+
+
+    };
+
+
+    // =================================================================
+    // Grats view
+    // =================================================================
+
+    const showGrats = () => {
+        // const aboutDocs = document.querySelector('.about_block_docs');
+        const grats = document.querySelectorAll('.grats_block_doc');
+
+        let wrap = document.createElement('div');
+        wrap.classList.add('wrap');
+        wrap.style.display = 'none';
+        document.body.appendChild(wrap);
+        
+        let imageFrame = document.createElement('div');
+        imageFrame.classList.add('docs_frame');
+        imageFrame.style.display = 'none';
+        wrap.appendChild(imageFrame);
+
+        wrap.addEventListener('click', (e) => {
+            if (e.target === wrap) {
+                document.body.style.overflow = '';
+                document.body.style.marginRight = `0px`;
+                wrap.style.display = 'none';
+            }
+        });
+
+        grats.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                let target = e.target;
+                let path = '';
+                if ((item == target) || (item == target.parentNode) || (item == target.parentNode.parentNode)) {
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.marginRight = `${scroll}px`;
+                    wrap.style.display = 'flex';
+
+                    if (target.hasAttribute('href')) {
+                        path = target.getAttribute('href');
+                    };
+                    if (target.parentNode.hasAttribute('href')) {
+                        path = target.parentNode.getAttribute('href');
+                    };
+                    if (target.parentNode.parentNode.hasAttribute('href')) {
+                        path = target.parentNode.parentNode.getAttribute('href');
+                    };
+
+                    const bigImage = document.createElement('img');
+                    bigImage.setAttribute('src', path);
+        
+                    if (imageFrame.firstChild != null) {
+                        imageFrame.removeChild(imageFrame.firstChild);
+                    };
+                    imageFrame.style.display = 'flex';
+                    imageFrame.appendChild(bigImage);
+
+                };
+            });
+        });
+
+    };
 
 
 
@@ -406,6 +629,10 @@ window.addEventListener('DOMContentLoaded', () => {
     aboutTabs();
     ndTabs();
     expertsGallery();
-    showCerts();
+    showSerts();
+    showDocs();
+    equipmentGallery();
+    showGrats();
+
 });
 
