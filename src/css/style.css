@@ -372,11 +372,72 @@ h2 {
 }
 
 .adv_item {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
     width: 300px;
+}
+
+.adv_item_top_text {
+    position: absolute;
+    top: 10px;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.adv_item_counter_client {
+    position: absolute;
+    top: 110px;
+    font-size: 60px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.adv_item_counter_order {
+    position: absolute;
+    top: 110px;
+    font-size: 60px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ff6d3b;
+}
+
+.adv_item_counter_year {
+    position: absolute;
+    top: 110px;
+    font-size: 60px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.adv_item_bottom_text {
+    position: absolute;
+    top: 250px;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .adv_item_img {
@@ -426,6 +487,10 @@ h2 {
     align-items: center;
     width: 300px;
     margin-top: 32px;
+}
+
+.news_item a {
+    text-decoration: none;
 }
 
 .news_item:hover {
@@ -552,7 +617,6 @@ h2 {
     min-height: 400px;
     padding: 20px 0 20px 0;
     width: 350px;
-    cursor: pointer;
 }
 
 .about_block_doc:hover {
@@ -570,6 +634,7 @@ h2 {
     max-width: 300px;
     max-height: 300px;
     border: 2px solid #d2d1d1;
+    cursor: pointer;
 }
 
 .about_block h3 {
@@ -732,7 +797,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -764,6 +829,7 @@ h2 {
 
 
 .grats_block_doc {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -771,11 +837,21 @@ h2 {
     min-height: 400px;
     padding: 20px 0 20px 0;
     width: 350px;
-    cursor: pointer;
 }
 
 .grats_block_doc:hover {
     border-bottom: 3px solid #67bddd;
+}
+
+.grats_block_doc:before {
+    content: "";
+    position: absolute;
+    background-image: url('../icons/medal.svg');
+    left: 30px;
+    top: 0px;
+    width: 100px;
+    height: 100px;
+    z-index: 5;
 }
 
 .grats_block_doc_divider {
@@ -788,11 +864,60 @@ h2 {
     margin: 0 50px;
     max-width: 300px;
     max-height: 300px;
-    border: 2px solid #d2d1d1;
+    border: 3px solid #67bddd;
+    cursor: pointer;
 }
 
 
+.doc_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+}
 
+.doc_icon img {
+    width: 100%;
+}
+
+.blanks {
+    min-height: 338px;
+    padding: 40px 0;
+}
+
+.blanks_frame {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 34px;
+}
+
+.blanks .blanks_frame_block {
+    display: inline-block;
+    min-width: 500px;
+}
+
+
+.blanks h3 {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.48px;
+    text-align: left;
+    color: #444444;
+}
+
+.blanks_frame_block_link {
+    display: grid;
+    grid-template-columns: 300px 60px 60px;
+    grid-template-rows: 60px;
+}
+
+.blanks_frame_block_link a:hover {
+    border: 1px solid #67bddd;
+    border-radius: 5px;
+}
 
 
 
@@ -811,10 +936,9 @@ h2 {
     background-color: #e7e7e7;
 }
 
-.norma_docs .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.norma_docs_frame {
+    position: relative;
+    display: block;
 }
 
 .norma_docs h2 {
@@ -833,8 +957,8 @@ h2 {
 
 .norma_docs .nd_block {
     display: inline-block;
-    width: 69%;
-    min-height: 683px;
+    width: 680px;
+    /* min-height: 683px; */
     background-color: #fff;
     box-shadow: inset 0px -3px 0 0 rgba(0, 0, 0, 0.05);
     padding-bottom: 34px;
@@ -883,11 +1007,13 @@ h2 {
     color: #8c8c8c;
 }
 
-.norma_docs .nd_order {
+.norma_docs .nd_block_menu {
+    position: absolute;
+    top: 0px;
     display: inline-block;
-    width: 250px;
-    min-height: 683px;
-    margin-right: 12px;
+    min-width: 250px;
+    min-height: 500px;
+    padding-right: 12px;
     background-color: #f3f3f3;
     box-shadow: inset 0px -4px 0 0 rgba(0, 0, 0, 0.07);
     border-left: 5px solid #e7e7e7;

@@ -470,9 +470,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 docs.forEach((item, i) => {
 
                     if ((item == target) || (item == target.parentNode) || (item == target.parentNode.parentNode)) {
-                        document.body.style.overflow = 'hidden';
-                        document.body.style.marginRight = `${scroll}px`;
-                        wrap.style.display = 'flex';
 
                         if (target.hasAttribute('href')) {
                             path = target.getAttribute('href');
@@ -484,14 +481,21 @@ window.addEventListener('DOMContentLoaded', () => {
                             path = target.parentNode.parentNode.getAttribute('href');
                         };
                         
-                        const bigImage = document.createElement('img');
-                        bigImage.setAttribute('src', path);
+                        if (path != '') {
+                            document.body.style.overflow = 'hidden';
+                            document.body.style.marginRight = `${scroll}px`;
+
+                            wrap.style.display = 'flex';
+                            const bigImage = document.createElement('img');
+                            bigImage.setAttribute('src', path);
             
-                        if (imageFrame.firstChild != null) {
-                            imageFrame.removeChild(imageFrame.firstChild);
-                        };
-                        imageFrame.style.display = 'flex';
-                        imageFrame.appendChild(bigImage);
+                            if (imageFrame.firstChild != null) {
+                                imageFrame.removeChild(imageFrame.firstChild);
+                            };
+                            imageFrame.style.display = 'flex';
+                            imageFrame.appendChild(bigImage);
+        
+                        }
                                     
                     }
                 });
@@ -564,7 +568,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // =================================================================
 
     const showGrats = () => {
-        // const aboutDocs = document.querySelector('.about_block_docs');
         const grats = document.querySelectorAll('.grats_block_doc');
 
         let wrap = document.createElement('div');
@@ -591,9 +594,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 let target = e.target;
                 let path = '';
                 if ((item == target) || (item == target.parentNode) || (item == target.parentNode.parentNode)) {
-                    document.body.style.overflow = 'hidden';
-                    document.body.style.marginRight = `${scroll}px`;
-                    wrap.style.display = 'flex';
 
                     if (target.hasAttribute('href')) {
                         path = target.getAttribute('href');
@@ -605,22 +605,73 @@ window.addEventListener('DOMContentLoaded', () => {
                         path = target.parentNode.parentNode.getAttribute('href');
                     };
 
-                    const bigImage = document.createElement('img');
-                    bigImage.setAttribute('src', path);
-        
-                    if (imageFrame.firstChild != null) {
-                        imageFrame.removeChild(imageFrame.firstChild);
-                    };
-                    imageFrame.style.display = 'flex';
-                    imageFrame.appendChild(bigImage);
-
+                    if (path != '') {
+                        document.body.style.overflow = 'hidden';
+                        document.body.style.marginRight = `${scroll}px`;
+                        wrap.style.display = 'flex';
+    
+                        const bigImage = document.createElement('img');
+                        bigImage.setAttribute('src', path);
+            
+                        if (imageFrame.firstChild != null) {
+                            imageFrame.removeChild(imageFrame.firstChild);
+                        };
+                        imageFrame.style.display = 'flex';
+                        imageFrame.appendChild(bigImage);
+    
+    
+                    }
                 };
             });
         });
 
     };
 
+    // =================================================================
+    // Adv counters
+    // =================================================================
 
+    const counters = () => {
+        const counterClients = document.querySelector('.adv_item_counter_client');
+        const counterOrders = document.querySelector('.adv_item_counter_order');
+        const counterYears = document.querySelector('.adv_item_counter_year');
+
+        let numClients = 300;
+        let numOrders = 1000;
+        let numYears = 16;
+
+        let i = 0;
+
+        let setClients = setInterval(function() {
+                i++;
+                if (i === numClients) {
+                    clearInterval(setClients);
+                };
+                counterClients.innerHTML = i;
+            }, 5);
+    
+        let y = 0;
+
+        let setOrders = setInterval(function() {
+                y++;
+                if (y === numOrders) {
+                    clearInterval(setOrders);
+                };
+                counterOrders.innerHTML = y;
+            }, 0,2);
+
+        let k = 0;
+
+        let setYears = setInterval(function() {
+                k++;
+                if (k === numYears) {
+                    clearInterval(setYears);
+                };
+                counterYears.innerHTML = k;
+            }, 300);
+
+
+        };
 
 
     mobileMenu();
@@ -633,6 +684,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showDocs();
     equipmentGallery();
     showGrats();
+    counters();
 
 });
 
