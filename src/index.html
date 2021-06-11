@@ -13,7 +13,8 @@
 <body>
     <header>
         <div class="top">
-            <div class="logo"><a href="#"><img src="icons/logo.png" alt="logo"></a></div>
+            <div class="container">
+            <!-- <div class="logo"><a href="#"><img src="icons/logo.png" alt="logo"></a></div>
             <div class="logo_text"><a href="#">НИЦ</a></div>
             <nav>
                 <ul class="menu">
@@ -28,12 +29,27 @@
                     <span></span>
                     <span></span>
                 </div>
-                </nav>
+            </nav>
             <div class="search">
                 <div class="search_field"></div>
                 <div class="search_btn">
                     <div class="container"><img src="icons/search.png"></div>
                 </div>
+            </div> -->
+
+            <div class="logo">
+                <img src="icons/logo.png" alt="logo">
+                Научно-исследовательский центр
+            </div>
+            <div class="mail">
+                <img src="icons/mail.png" alt="mailto">
+                <a href="mailto:nicbratsk@mail.ru">nicbratsk@mail.ru</a>
+            </div>
+            <div class="tel">
+                <img src="icons/phone.png" alt="phone">
+                <a href="tel:+73953210709">8(3953) 210709</a>
+            </div>
+
             </div>
         </div>
     </header>
@@ -119,36 +135,38 @@
     </section>
 
     <section class="news">
-        <h2>Новое на сайте</h2>
-        <div class="container">
-            <div class="news_item">
-                <img src="icons/new1.png" alt="new1" class="news_item_img">
-                <div class="news_item_text">
-                    <h3>Памятка</h3>               
-                    Что должен сделать работодатель после получения результатов специальной оценки условий труда (СОУТ)
-                    <a href="./doc/Memo5.doc"><div class="more_btn"><span>Далее</span></div></a>
+        <div class="color_frame">
+            <h2>Новое на сайте</h2>
+            <div class="container">
+                <div class="news_item">
+                    <img src="icons/new1.png" alt="new1" class="news_item_img">
+                    <div class="news_item_text">
+                        <h3>Памятка</h3>               
+                        Что должен сделать работодатель после получения результатов специальной оценки условий труда (СОУТ)
+                        <a href="./doc/Memo5.doc"><div class="more_btn"><span>Далее</span></div></a>
+                    </div>
                 </div>
-            </div>
-            <div class="news_divider"></div>
-            <div class="news_item">
-                <img src="icons/new2.png" alt="new2" class="news_item_img">
-                <div class="news_item_text">
-                    <h3>Вниманию</h3> 
-                    Руководителей учреждений здравоохранения! "...О биологическом факторе..."
-                    <a href="./doc/Bf1.jpg" target="_blank"><div class="more_btn"><span>Далее</span></div></a>
+                <div class="news_divider"></div>
+                <div class="news_item">
+                    <img src="icons/new2.png" alt="new2" class="news_item_img">
+                    <div class="news_item_text">
+                        <h3>Вниманию</h3> 
+                        Руководителей учреждений здравоохранения! "...О биологическом факторе..."
+                        <a href="./doc/Bf1.jpg" target="_blank"><div class="more_btn"><span>Далее</span></div></a>
+                    </div>
                 </div>
-            </div>
-            <div class="news_divider"></div>
-            <div class="news_item">
-                <img src="icons/new3.png" alt="new3" class="news_item_img">
-                <div class="news_item_text">
-                    <h3>Утвержден</h3>
-                    Профстандарт специалиста в области охраны труда
-                    <div class="more_btn"><span>Далее</span></div>
+                <div class="news_divider"></div>
+                <div class="news_item">
+                    <img src="icons/new3.png" alt="new3" class="news_item_img">
+                    <div class="news_item_text">
+                        <h3>Утвержден</h3>
+                        Профстандарт специалиста в области охраны труда
+                        <div class="more_btn"><span>Далее</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-</section>
+    </section>
 
 <section class="about">
     <h2>О предприятии</h2>
@@ -265,56 +283,40 @@
                     <img src="./img/Equipment/eq4.png">
                     <div class="about_block_equip_name">Измеритель трехкомпонентный ВЕ-метр-АТ-003</div>
                 </div>
-                <div class="about_block_equip_item">
-                    <img src="./img/Equipment/eq5.png">
-                    <div class="about_block_equip_name">Измеритель "ВЕ-50"</div>
-                </div>
-                <div class="about_block_equip_item">
-                    <img src="./img/Equipment/eq6.png">
-                    <div class="about_block_equip_name">Измеритель напряженности электростатического поля СТ-01</div>
-                </div>
-                <div class="about_block_equip_item">
-                    <img src="./img/Equipment/eq7.png">
-                    <div class="about_block_equip_name">Магнитометр трехкомпонентный малогабаритный МТМ-01</div>
-                </div>
-                <div class="about_block_equip_item">
-                    <img src="./img/Equipment/eq8.png">
-                    <div class="about_block_equip_name">Измеритель параметров микроклимата "Метеоскоп"</div>
-                </div>
                 <div class="arrow_btn equip_scroll_right"><img src="icons/arrow_next.png" alt="arrow_next"></div>
                 <div class="arrow_btn_disable equip_scroll_right_disable"><img src="icons/arrow_next.png" alt="arrow_next"></div>
             </div>
 </section>
 
-<section class="contacts">
-    <div class="container">
-        <h2>Контакты</h2>
-        <div class="contacts_block">
-            <div class="contacts_block_info">
-                <div class="mail">
-                    <img src="icons/mail.png" alt="mailto">
-                    <a href="mailto:nicbratsk@mail.ru">nicbratsk@mail.ru</a>
-                </div>
-                <div class="tel">
-                    <img src="icons/phone.png" alt="phone">
-                    <a href="tel:+73953210709">8(3953) 210709</a><br>
-                    <img src="icons/phone.png" alt="phone">
-                    <a href="tel:+73953467578">8(3953) 467578</a>
-                </div>
-                <div class="address">
-                    <img src="icons/location.png" alt="location">
-                    665700, Иркутская область, г. Братск, ул. Южная, 89
+    <section class="contacts">
+        <div class="color_frame">
+            <div class="container">
+                <h2>Контакты</h2>
+                <div class="contacts_block">
+                    <div class="contacts_block_info">
+                        <div class="mail">
+                            <img src="icons/mail.png" alt="mailto">
+                            <a href="mailto:nicbratsk@mail.ru">nicbratsk@mail.ru</a>
+                        </div>
+                        <div class="tel">
+                            <img src="icons/phone.png" alt="phone">
+                            <a href="tel:+73953210709">8(3953) 210709</a><br>
+                            <img src="icons/phone.png" alt="phone">
+                            <a href="tel:+73953467578">8(3953) 467578</a>
+                        </div>
+                        <div class="address">
+                            <img src="icons/location.png" alt="location">
+                            665700, Иркутская область, г. Братск, ул. Южная, 89
+                        </div>
+                    </div>
+                    <div class="contacts_block_map">
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8fb36c8f729918bd749cee8f3aca5689f83acf19b86d5b50de1c3348c7f25948&amp;source=constructor" width="600" height="400" frameborder="0"></iframe>
+                    </div>
+            
                 </div>
             </div>
-            <div class="contacts_block_map">
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8fb36c8f729918bd749cee8f3aca5689f83acf19b86d5b50de1c3348c7f25948&amp;source=constructor" width="600" height="400" frameborder="0"></iframe>
-            </div>
-    
         </div>
-    
-    </div>
-
-</section>
+    </section>  
 
 <section class="grats">
     <div class="container">
@@ -337,46 +339,47 @@
     
 </section>
 
-<section class="blanks">
-    <div class="container">
-        <h2>Бланки</h2>
-        <div class="blanks_frame">
-            <div class="blanks_frame_image">
-                <img src="img/blank.png" alt="Бланки">
+    <section class="blanks">
+        <div class="color_frame">
+            <div class="container">
+                <h2>Бланки</h2>
+                <div class="blanks_frame">
+                    <div class="blanks_frame_image">
+                        <img src="img/blank.png" alt="Бланки">
+                    </div>
+                    <div class="blanks_frame_block">
+                        <div class="blanks_frame_block_link">
+                            <h3>Памятка для заполнения:</h3>
+                            <a href="./doc/Blank/Memo3.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
+                        </div>
+                        <div class="blanks_frame_block_link">
+                            <h3>Приложение №1:</h3>
+                            <a href="./doc/Blank/Doc15.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
+                            <a href="./doc/Blank/Doc15.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
+                        </div>
+                        <div class="blanks_frame_block_link">
+                            <h3>Приложение №2:</h3>
+                            <a href="./doc/Blank/Doc16.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
+                            <a href="./doc/Blank/Doc16.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
+                        </div>
+                        <div class="blanks_frame_block_link">
+                            <h3>Приложение №3:</h3>
+                            <a href="./doc/Blank/Doc17.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
+                            <a href="./doc/Blank/Doc17.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
+                        </div>
+                        <div class="blanks_frame_block_link">
+                            <h3>Анкета заказчика:</h3>
+                            <a href="./doc/Blank/Doc18.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
+                        </div>
+                        <div class="blanks_frame_block_link">
+                            <h3>Приказ (распоряжение):</h3>
+                            <a href="./doc/Blank/Doc19.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="blanks_frame_block">
-                <div class="blanks_frame_block_link">
-                    <h3>Памятка для заполнения:</h3>
-                    <a href="./doc/Blank/Memo3.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
                 </div>
-                <div class="blanks_frame_block_link">
-                    <h3>Приложение №1:</h3>
-                    <a href="./doc/Blank/Doc15.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
-                    <a href="./doc/Blank/Doc15.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
-                </div>
-                <div class="blanks_frame_block_link">
-                    <h3>Приложение №2:</h3>
-                    <a href="./doc/Blank/Doc16.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
-                    <a href="./doc/Blank/Doc16.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
-                </div>
-                <div class="blanks_frame_block_link">
-                    <h3>Приложение №3:</h3>
-                    <a href="./doc/Blank/Doc17.doc"><div class="doc_icon"><img src="icons/word.png" alt="Приложение №1"></div></a>
-                    <a href="./doc/Blank/Doc17.xls"><div class="doc_icon"><img src="icons/Excel.png" alt="Приложение №1"></div></a>
-                </div>
-                <div class="blanks_frame_block_link">
-                    <h3>Анкета заказчика:</h3>
-                    <a href="./doc/Blank/Doc18.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
-                </div>
-                <div class="blanks_frame_block_link">
-                    <h3>Приказ (распоряжение):</h3>
-                    <a href="./doc/Blank/Doc19.doc"><div class="doc_icon"><img src="icons/word.png" alt="Памятка для заполнения"></div></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
+    </section>
 
 <section class="norma_docs">
     <div class="container">

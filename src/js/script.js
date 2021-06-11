@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    let equip = document.querySelectorAll('.about_block_equip_item');
+
     const scroll = calcScroll();
 
     function calcScroll() {
@@ -22,24 +24,24 @@ window.addEventListener('DOMContentLoaded', () => {
     // =================================================================
     // Adaptive menu
     // =================================================================
-    const mobileMenu = () => {
-        const menu = document.querySelector('.menu');
-        const menu_items = document.querySelectorAll('.menu .menu_item');
-        const hamburger = document.querySelector('.hamburger');
+    // const mobileMenu = () => {
+    //     const menu = document.querySelector('.menu');
+    //     const menu_items = document.querySelectorAll('.menu .menu_item');
+    //     const hamburger = document.querySelector('.hamburger');
         
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('hamburger_active');
-            menu.classList.toggle('menu_active');
-        });
+    //     hamburger.addEventListener('click', function() {
+    //         hamburger.classList.toggle('hamburger_active');
+    //         menu.classList.toggle('menu_active');
+    //     });
         
-        menu_items.forEach(function(item) {
-            item.addEventListener('click', function() {
-                hamburger.classList.toggle('hamburger_active');
-                menu.classList.toggle('menu_active');
+    //     menu_items.forEach(function(item) {
+    //         item.addEventListener('click', function() {
+    //             hamburger.classList.toggle('hamburger_active');
+    //             menu.classList.toggle('menu_active');
            
-            })
-        });
-    };
+    //         })
+    //     });
+    // };
     
     // =================================================================
     // Norma Doc Tabs
@@ -508,60 +510,6 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // =================================================================
-    // Equipment gallery
-    // =================================================================
-    
-    const equipmentGallery = () => {
-        const equip = document.querySelectorAll('.about_block_equip_item');
-        const left_btn = document.querySelector('.equip_scroll_left');
-        const right_btn = document.querySelector('.equip_scroll_right');
-        const left_btn_disable = document.querySelector('.equip_scroll_left_disable');
-        const right_btn_disable = document.querySelector('.equip_scroll_right_disable');
-        
-        left_btn.style.display = 'none';
-        left_btn_disable.style.display = 'flex';
-        right_btn.style.display = 'flex';
-        right_btn_disable.style.display = 'none';
-        let currentPos = 0;
-
-        setCurrent(currentPos);
-
-        function setCurrent(n) {
-            equip.forEach(item => {
-                item.style.display = 'none';
-            });
-            for (let i = 0; i < 4; i++) {
-            equip[n + i].style.display = 'flex';
-            };
-        };
-        
-        left_btn.addEventListener('click', () => {
-            currentPos--;
-            if (currentPos == 0) {
-                left_btn.style.display = 'none';
-                left_btn_disable.style.display = 'flex';
-            };
-            right_btn.style.display = 'flex';
-            right_btn_disable.style.display = 'none';
-            setCurrent(currentPos);
-        });
-
-        right_btn.addEventListener('click', () => {
-            currentPos++;
-            if (currentPos == equip.length - 4) {
-                currentPos = equip.length - 4;
-                right_btn.style.display = 'none';
-                right_btn_disable.style.display = 'flex';
-            };
-            left_btn.style.display = 'flex';
-            left_btn_disable.style.display = 'none';
-            setCurrent(currentPos);
-        });
-
-
-    };
-
 
     // =================================================================
     // Grats view
@@ -673,8 +621,109 @@ window.addEventListener('DOMContentLoaded', () => {
 
         };
 
+    // =================================================================
+    // JSON requests
+    // =================================================================
 
-    mobileMenu();
+    function getDevices(wrapper) {
+
+        const getResource = async (url) => {
+
+            let res = await fetch(url);
+
+            if (!res.ok) {
+                throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+            }
+
+            return await res.json();
+        };
+
+        getResource('db/devices.json')
+            .then(res => createDevices(res.list))
+            .catch(error => console.log(error));
+
+        function createDevices(response) {
+            response.forEach(item => {
+                let card = document.createElement('div');
+                card.classList.add('about_block_equip_item');
+                card.innerHTML = `
+                    <img src=${item.src} alt="">
+                    <div class="about_block_equip_name">${item.title}</div>
+                `;
+                card.style.display = 'none';
+
+                document.querySelector(wrapper).insertBefore(card, document.querySelector('.equip_scroll_right'));
+            });
+
+            equip = document.querySelectorAll('.about_block_equip_item');
+
+        };
+
+    };
+
+
+    // =================================================================
+    // Equipment gallery
+    // =================================================================
+    
+    const equipmentGallery = () => {
+    
+        const left_btn = document.querySelector('.equip_scroll_left');
+        const right_btn = document.querySelector('.equip_scroll_right');
+        const left_btn_disable = document.querySelector('.equip_scroll_left_disable');
+        const right_btn_disable = document.querySelector('.equip_scroll_right_disable');
+        
+        left_btn.style.display = 'none';
+        left_btn_disable.style.display = 'flex';
+        right_btn.style.display = 'flex';
+        right_btn_disable.style.display = 'none';
+        let currentPos = 0;
+
+        setCurrent(currentPos);
+
+        function setCurrent(n) {
+            equip.forEach(item => {
+                item.style.display = 'none';
+            });
+            for (let i = 0; i < 4; i++) {
+            equip[n + i].style.display = 'flex';
+            };
+        };
+        
+        left_btn.addEventListener('click', () => {
+            currentPos--;
+            if (currentPos == 0) {
+                left_btn.style.display = 'none';
+                left_btn_disable.style.display = 'flex';
+            };
+            right_btn.style.display = 'flex';
+            right_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
+
+        right_btn.addEventListener('click', () => {
+            currentPos++;
+            if (currentPos == equip.length - 4) {
+                currentPos = equip.length - 4;
+                right_btn.style.display = 'none';
+                right_btn_disable.style.display = 'flex';
+            };
+            left_btn.style.display = 'flex';
+            left_btn_disable.style.display = 'none';
+            setCurrent(currentPos);
+        });
+    
+
+    };
+
+
+    let promise = new Promise((resolve, reject) => {
+        getDevices('.about_block_equip');
+    });
+
+
+
+    // mobileMenu();
     arrowUp();
     slider();    
     aboutTabs();
@@ -682,9 +731,9 @@ window.addEventListener('DOMContentLoaded', () => {
     expertsGallery();
     showSerts();
     showDocs();
-    equipmentGallery();
+    promise
+        .then (equipmentGallery());
     showGrats();
     counters();
-
 });
 

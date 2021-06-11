@@ -11,12 +11,22 @@ html {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.section {
+    background-color: #e7e7e7;
+}
+
+.color_frame {
+    width: 1560px;
+    background-color: #fff;
+    padding: 40px 0;
+}
+
 .container {
     width: 980px;
     margin: 0 auto;
 }
 
-.top {
+/* .top {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -152,7 +162,58 @@ html {
     align-items: center;
     height: 100%;
     width: 100%;
+} */
+
+.top .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.top .logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 32px auto;
+    font-size: 27px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.54px;
+    color: #a0a0a0;
+}
+
+    .top .mail,
+.top .tel {
+    margin-left: 30px;
+}
+
+.top a {
+    padding-left: 15px;
+    font-size: 19px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.26;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4ca7c9;
+}
+
+.top .tel a {
+    padding-left: 15px;
+    font-size: 19px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.26;
+    letter-spacing: normal;
+    text-align: left;
+    text-decoration: none;
+    color: #444444;
+}
+
 
 .arrow_btn {
     display: inline-flex;
@@ -470,15 +531,17 @@ h2 {
 }
 
 .news {
-    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 338px;
+    background-color: #e7e7e7;
 }
 
 .news .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .news_item {
@@ -686,7 +749,11 @@ h2 {
 }
 
 .contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 40px 0;
+    background-color: #e7e7e7;
 }
 
 .contacts_block {
@@ -882,8 +949,12 @@ h2 {
 }
 
 .blanks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 338px;
     padding: 40px 0;
+    background-color: #e7e7e7;
 }
 
 .blanks_frame {
@@ -1092,7 +1163,7 @@ footer {
     color: #a0a0a0;
 }
 
-.footer_info .mail,
+    .footer_info .mail,
 .footer_info .tel {
     margin-bottom: 20px;
 }

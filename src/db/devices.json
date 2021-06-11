@@ -1,0 +1,119 @@
+{
+    "list": [
+        {
+            "src": "./img/Equipment/eq5.png",
+            "title": "Измеритель ВЕ-50"
+        },
+        {
+            "src": "./img/Equipment/eq6.png",
+            "title": "Измеритель напряженности электростатического поля СТ-01"
+        },
+        {
+            "src": "./img/Equipment/eq7.png",
+            "title": "Магнитометр трехкомпонентный малогабаритный МТМ-01"
+        },
+        {
+            "src": "./img/Equipment/eq8.png",
+            "title": "Измеритель параметров микроклимата `Метеоскоп`"
+        },
+        {
+            "src": "./img/Equipment/eq9.png",
+            "title": "Газоанализатор СЕАН-NO2 модель К"
+        },
+        {
+            "src": "./img/Equipment/eq10.png",
+            "title": "Измеритель параметров микроклимата Метеоскоп-М"
+        },
+        {
+            "src": "./img/Equipment/eq11.png",
+            "title": "Измеритель уровней электромагнитных излучений П3-41"
+        },
+        {
+            "src": "./img/Equipment/eq12.png",
+            "title": "Дозиметр автоматизированный для измерения уровней лазерного излучения `Ладин`"
+        },
+        {
+            "src": "./img/Equipment/eq13.png",
+            "title": "Прибор комбинированный УФ-Радиометр с ослабляющим фильтром ТКА-ПКМ (13)"
+        },
+        {
+            "src": "./img/Equipment/eq14.png",
+            "title": "Радиометр теплового излучения `ИК-метр`"
+        },
+        {
+            "src": "./img/Equipment/eq15.png",
+            "title": "Дозиметр-радиометр МКС-АТ6130"
+        },
+        {
+            "src": "./img/Equipment/eq16.png",
+            "title": "Люксметр-яркомер `Аргус-12`"
+        },
+        {
+            "src": "./img/Equipment/eq17.png",
+            "title": "Пульсметр-Люксметр `ТКА-ПКМ` (08)"
+        },        {
+            "src": "./img/Equipment/eq18.png",
+            "title": "Измеритель влажности и температуры `ТКА-ПКМ` (20)"
+        },        {
+            "src": "./img/Equipment/eq19.png",
+            "title": "Дальномер лазерный Mettro CONDTROL 60 (1)"
+        },        {
+            "src": "./img/Equipment/eq20.png",
+            "title": "Секундомер механический СОСпр-2б-2-000 (1)"
+        },        {
+            "src": "./img/Equipment/eq21.png",
+            "title": "Динамометр становой ДС-200 (1)"
+        },        {
+            "src": "./img/Equipment/eq22.png",
+            "title": "Анализатор-течеискатель АНТ-3М, блок ФИД"
+        },        {
+            "src": "./img/Equipment/eq23.png",
+            "title": "Люксметр `ТКА-Люкс`"
+        },        {
+            "src": "./img/Equipment/eq24.png",
+            "title": "Газоанализатор портативный `ЭКОЛАБ`"
+        },        {
+            "src": "./img/Equipment/eq25.png",
+            "title": "Цифровой мультиметр СММ-10"
+        },        {
+            "src": "./img/Equipment/eq26.png",
+            "title": "Секундомер механический СОСпр-2б-2-010 (2)"
+        },        {
+            "src": "./img/Equipment/eq27.png",
+            "title": "Измеритель ВЕ-метр, модификации 50 Гц"
+        },        {
+            "src": "./img/Equipment/eq28.png",
+            "title": "Прибор комбинированный `ТКА-ПКМ`(41)"
+        },        {
+            "src": "./img/Equipment/eq29.png",
+            "title": "Калибратор портативный `AT01m` (2)"
+        },        {
+            "src": "./img/Equipment/eq30.png",
+            "title": "Газоанализатор СЕАН-Н-NO2"
+        },        {
+            "src": "./img/Equipment/eq31.png",
+            "title": "Анализатор-течеискатель АНТ-3М"
+        },        {
+            "src": "./img/Equipment/eq32.png",
+            "title": "Весы электронные подвесные ВНТ-30-10"
+        },        {
+            "src": "./img/Equipment/eq33.png",
+            "title": "Leica DISTO TM D2 (2)"
+        },        {
+            "src": "./img/Equipment/eq34.png",
+            "title": "Весы электронные M-ER 333"
+        },        {
+            "src": "./img/Equipment/eq35.png",
+            "title": "Динамометр электронный АЦД/1У-2/1И-2"
+        },        {
+            "src": "./img/Equipment/eq36.png",
+            "title": "Магнитометр трехкомпонентный малогабаритный МТМ-02"
+        },        {
+            "src": "./img/Equipment/eq37.png",
+            "title": "Весы лабораторные электронные ВЛ-120"
+        },        {
+            "src": "./img/Equipment/eq38.png",
+            "title": "Спектрофотометр ПромЭкоЛаб ПЭ-5400УФ"
+        }
+    ]
+}
