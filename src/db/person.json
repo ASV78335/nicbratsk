@@ -1,24 +1,47 @@
 {
-    "styles": [
+    "list": [
         {
-            "src": "assets/img/styles-5.jpg",
-            "title": "Пастелью",
-            "link": "#pastel"
+            "src": "./icons/no_photo.png",
+            "name": "Орлянская Наталья Валентиновна",
+            "pos": "Заведующая лабораторией, эксперт",
+            "certs": "./img/Certs/Orl/Page1.jpg, ./img/Certs/Orl/Page2.jpg, ./img/Certs/Orl/Page3.jpg, ./img/Certs/Orl/Page4.jpg, ./img/Certs/Orl/Page5.jpg"
         },
         {
-            "src": "assets/img/styles-6.jpg",
-            "title": "Поп-арт",
-            "link": "#popart"
+            "src": "./icons/no_photo.png",
+            "name": "Скоробогатько Егор Владимирович",
+            "pos": "Заместитель заведующего лабораторией, эксперт",
+            "certs": "./img/Certs/Skor/Page1.jpg, ./img/Certs/Skor/Page2.jpg, ./img/Certs/Skor/Page3.jpg, ./img/Certs/Skor/Page4.jpg, ./img/Certs/Skor/Page5.jpg"
         },
         {
-            "src": "assets/img/styles-7.png",
-            "title": "Фотомозаика",
-            "link": "#mozaika"
+            "src": "./icons/no_photo.png",
+            "name": "Скоробогатько Марина Леонидовна",
+            "pos": "Эксперт",
+            "certs": ""
         },
         {
-            "src": "assets/img/styles-8.jpg",
-            "title": "Шарж",
-            "link": "#sharj"
-        }
+            "src": "./icons/no_photo.png",
+            "name": "Ерикова Елена Викторовна",
+            "pos": "Эксперт",
+            "certs": "./img/Certs/Erikova/Page1.jpg, ./img/Certs/Erikova/Page2.jpg, ./img/Certs/Erikova/Page3.jpg, ./img/Certs/Erikova/Page4.jpg"
+        },
+        {
+            "src": "./icons/no_photo.png",
+            "name": "Гайнуллин Роман Ренатович",
+            "pos": "Эксперт",
+            "certs": "./img/Certs/Gainullin/Page1.jpg, ./img/Certs/Gainullin/Page2.jpg, ./img/Certs/Gainullin/Page3.jpg, ./img/Certs/Gainullin/Page4.jpg"
+
+        },
+        {
+            "src": "./icons/no_photo.png",
+            "name": "Антонов Виталий Михайлович",
+            "pos": "Ведущий инженер",
+            "certs": "./img/Certs/Antonov/Page1.jpg"
+        },
+        {
+            "src": "./icons/no_photo.png",
+            "name": "Карнеев Денис Николаевич",
+            "pos": "Ведущий инженер",
+            "certs": "./img/Certs/Karneev/Page1.jpg"
+       }
     ]
 }

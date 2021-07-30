@@ -1,6 +1,22 @@
 {
     "list": [
         {
+            "src": "./img/Equipment/eq1.png",
+            "title": "Газоанализатор СЕАН-СО модель К"
+        },
+        {
+            "src": "./img/Equipment/eq2.png",
+            "title": "Газоанализатор универсальный ГАНК-4"
+        },
+        {
+            "src": "./img/Equipment/eq3.png",
+            "title": "Анализатор шума и вибрации Ассистент-Total"
+        },
+        {
+            "src": "./img/Equipment/eq4.png",
+            "title": "Измеритель трехкомпонентный ВЕ-метр-АТ-003"
+        },
+        {
             "src": "./img/Equipment/eq5.png",
             "title": "Измеритель ВЕ-50"
         },

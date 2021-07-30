@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     let equip = document.querySelectorAll('.about_block_equip_item');
+    let person = document.querySelectorAll('.about_block_person_item');
 
     const scroll = calcScroll();
 
@@ -47,10 +48,46 @@ window.addEventListener('DOMContentLoaded', () => {
     // Norma Doc Tabs
     // =================================================================
 
+    function createList(documents, wrap) {
+        const docWrap = document.querySelector(wrap);
+        documents.forEach(item => {
+            let doc = document.createElement('div');
+            doc.classList.add('nd_block_item');
+            doc.classList.add(item.pos);
+
+            let h3 = document.createElement('h3');
+            let h3Span = document.createElement('span');
+            h3Span.classList.add('nd_block_cap');
+            h3.appendChild(h3Span);
+            h3.append(item.title);
+            doc.appendChild(h3);
+
+            let descr = document.createElement('div');
+            descr.classList.add('nd_block_descr');
+            let descrSpan = document.createElement('span');
+            descrSpan.innerHTML = '\"' + item.name + '\"';
+            descr.appendChild(descrSpan);
+            let descrHref = document.createElement('a');
+            descrHref.setAttribute('href', item.src);
+            let descrHrefBtn = document.createElement('div');
+            descrHrefBtn.classList.add('arrow_btn');
+            let descrHrefBtnImage = document.createElement('img');
+            descrHrefBtnImage.setAttribute('src', 'icons/arrow.png');
+            descrHrefBtnImage.setAttribute('alt', 'Arrow');
+            descrHrefBtn.appendChild(descrHrefBtnImage);
+            descrHref.appendChild(descrHrefBtn);
+            descr.appendChild(descrHref);
+
+            doc.appendChild(descr);
+
+            doc.style.display = 'block';
+            docWrap.appendChild(doc);
+    
+        })
+    };
+
     const ndTabs = () => {
-        const nd_order = document.querySelector('.nd_order');
         const nd_order_items = document.querySelectorAll('.nd_order_item');
-        const nd_block = document.querySelector('.nd_block');
         const nd_block_items = document.querySelectorAll('.nd_block_item');
         
         nd_order_items.forEach(function(item) {
@@ -223,215 +260,6 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    // =================================================================
-    // Experts gallery
-    // =================================================================
-    
-    const expertsGallery = () => {
-        const experts = document.querySelectorAll('.about_block_person_item');
-        const left_btn = document.querySelector('.person_scroll_left');
-        const right_btn = document.querySelector('.person_scroll_right');
-        const left_btn_disable = document.querySelector('.person_scroll_left_disable');
-        const right_btn_disable = document.querySelector('.person_scroll_right_disable');
-        
-        left_btn.style.display = 'none';
-        left_btn_disable.style.display = 'flex';
-        right_btn.style.display = 'flex';
-        right_btn_disable.style.display = 'none';
-        let currentPos = 0;
-
-        setCurrent(currentPos);
-
-        function setCurrent(n) {
-            experts.forEach(item => {
-                item.style.display = 'none';
-            });
-            for (let i = 0; i < 4; i++) {
-            experts[n + i].style.display = 'flex';
-            };
-        };
-        
-        left_btn.addEventListener('click', () => {
-            currentPos--;
-            if (currentPos == 0) {
-                left_btn.style.display = 'none';
-                left_btn_disable.style.display = 'flex';
-            };
-            right_btn.style.display = 'flex';
-            right_btn_disable.style.display = 'none';
-            setCurrent(currentPos);
-        });
-
-        right_btn.addEventListener('click', () => {
-            currentPos++;
-            if (currentPos == experts.length - 4) {
-                currentPos = experts.length - 4;
-                right_btn.style.display = 'none';
-                right_btn_disable.style.display = 'flex';
-            };
-            left_btn.style.display = 'flex';
-            left_btn_disable.style.display = 'none';
-            setCurrent(currentPos);
-        });
-
-        experts.forEach((item, i) => {
-            item.addEventListener('click', () => {
-
-            });
-         });
-        
-
-    };
-
-    const showSerts = () => {
-        const experts = document.querySelectorAll('.about_block_person_item');
-        const expertsWrap = document.querySelector('.about_block_person');
-            
-        let wrap = document.createElement('div');
-        wrap.classList.add('wrap');
-        wrap.style.display = 'none';
-        document.body.appendChild(wrap);
-        
-
-        let sertsWrap = document.createElement('div');
-        sertsWrap.classList.add('serts_gallery');
-        sertsWrap.style.display = 'none';
-        wrap.appendChild(sertsWrap);
-
-        let imageFrame = document.createElement('div');
-        imageFrame.classList.add('serts_frame');
-        imageFrame.style.display = 'none';
-        wrap.appendChild(imageFrame);
-
-        const sertsAntonov = ['./img/Certs/Antonov/Page1.jpg'];
-        const sertsErikova = ['./img/Certs/Erikova/Page1.jpg', './img/Certs/Erikova/Page2.jpg', './img/Certs/Erikova/Page3.jpg', './img/Certs/Erikova/Page4.jpg'];
-        const sertsGainullin = ['./img/Certs/Gainullin/Page1.jpg', './img/Certs/Gainullin/Page2.jpg', './img/Certs/Gainullin/Page3.jpg', './img/Certs/Gainullin/Page4.jpg'];
-        const sertsKarneev = ['./img/Certs/Karneev/Page1.jpg'];
-        const sertsOrl = ['./img/Certs/Orl/Page1.jpg', './img/Certs/Orl/Page2.jpg', './img/Certs/Orl/Page3.jpg', './img/Certs/Orl/Page4.jpg', './img/Certs/Orl/Page5.jpg'];
-        const sertsSkor = ['./img/Certs/Skor/Page1.jpg', './img/Certs/Skor/Page2.jpg', './img/Certs/Skor/Page3.jpg', './img/Certs/Skor/Page4.jpg', './img/Certs/Skor/Page5.jpg'];
-
-        wrap.addEventListener('click', (e) => {
-            if (e.target === wrap) {
-                document.body.style.overflow = '';
-                document.body.style.marginRight = `0px`;
-                wrap.style.display = 'none';
-            }
-        });
-
-        expertsWrap.addEventListener('click', (e) => {
-            e.preventDefault();
-            let target = e.target;
-
-            if (imageFrame.firstChild != null) {
-                imageFrame.removeChild(imageFrame.firstChild);
-            };
-
-            let fc = sertsWrap.firstChild;
-            while (fc) {
-                sertsWrap.removeChild(fc);
-                fc = sertsWrap.firstChild;
-            }
-
-            if (target && target.classList.contains('about_block_person_item') || 
-            target.parentNode.classList.contains('about_block_person_item')) {
-                document.body.style.overflow = 'hidden';
-                document.body.style.marginRight = `${scroll}px`;
-                wrap.style.display = 'flex';
-                experts.forEach((item, i) => {
-                    if ((item == target) || (item == target.parentNode)) {
-                        switch (i) {
-                            case i = 0: 
-                            for (let k = 0; k < sertsOrl.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsOrl[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-
-                            case i = 1: 
-                            for (let k = 0; k < sertsSkor.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsSkor[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-                            case i = 2:
-                                wrap.style.display = 'none';
-                                break;                            
-                            case i = 3:
-                            for (let k = 0; k < sertsErikova.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsErikova[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-                            case i = 4:
-                            for (let k = 0; k < sertsGainullin.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsGainullin[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-                            case i = 5:
-                            for (let k = 0; k < sertsAntonov.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsAntonov[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-                            case i = 6:
-                            for (let k = 0; k < sertsKarneev.length; k++) {
-                                let image = document.createElement('img');
-                                let path = sertsKarneev[k];
-                                image.setAttribute('src', path);
-                                sertsWrap.appendChild(image);
-                            }
-                            break;
-                        }
-        
-                    }
-
-                });
-
-                sertsWrap.style.display = 'flex';
-                };
-
-        });
-        sertsWrap.addEventListener('click', (e) => {
-            e.preventDefault();
-            let target = e.target;
-
-            let images = sertsWrap.querySelectorAll('img');
-
-            images.forEach(item => {
-                if (target == item) {
-
-                    const bigImage = document.createElement('img');
-                    const path = target.getAttribute('src');
-                    bigImage.setAttribute('src', path);
-        
-                    if (imageFrame.firstChild != null) {
-                        imageFrame.removeChild(imageFrame.firstChild);
-                    };
-                    imageFrame.style.display = 'flex';
-                    imageFrame.appendChild(bigImage);
-        
-                };
-
-            });
-               
-
-        });
-
-        
-
-    };
-
 
     // =================================================================
     // Docs view
@@ -621,57 +449,60 @@ window.addEventListener('DOMContentLoaded', () => {
 
         };
 
+
     // =================================================================
-    // JSON requests
+    // Data for "About" Block
     // =================================================================
 
-    function getDevices(wrapper) {
+    async function getInfo(url) {
 
-        const getResource = async (url) => {
+        let res = await fetch(url);
 
-            let res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+        }
 
-            if (!res.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-            }
-
-            return await res.json();
-        };
-
-        getResource('db/devices.json')
-            .then(res => createDevices(res.list))
-            .catch(error => console.log(error));
-
-        function createDevices(response) {
-            response.forEach(item => {
-                let card = document.createElement('div');
-                card.classList.add('about_block_equip_item');
-                card.innerHTML = `
-                    <img src=${item.src} alt="">
-                    <div class="about_block_equip_name">${item.title}</div>
-                `;
-                card.style.display = 'none';
-
-                document.querySelector(wrapper).insertBefore(card, document.querySelector('.equip_scroll_right'));
-            });
-
-            equip = document.querySelectorAll('.about_block_equip_item');
-
-        };
-
+        return res.json();
     };
 
 
-    // =================================================================
-    // Equipment gallery
-    // =================================================================
+
+    function createBlock(response, wrapper, element, element_title, element_subtitle, endElement) {
+        response.forEach(item => {
+            let card = document.createElement('div');
+            card.classList.add(element);
+            let string = ``;
+            
+            if (item.src) {
+                string += `<img src=${item.src} alt="${item.name}"> `
+            };
+
+            if (item.name) {
+                string += ` <div class=${element_title}>${item.name}</div> `
+            };
+
+            if (item.pos) {
+                string += ` <div class=${element_subtitle}>${item.pos}</div> `
+            };
+
+            if (item.title) {
+                string += ` <div class=${element_title}>${item.title}</div> `
+            };
+
+            card.innerHTML = string;
+            card.style.display = 'none';
+
+            document.querySelector(wrapper).insertBefore(card, document.querySelector(endElement));
+        });
+   
+    };
+
+    function createGallery (block, left, right, left_dis, right_dis) {
     
-    const equipmentGallery = () => {
-    
-        const left_btn = document.querySelector('.equip_scroll_left');
-        const right_btn = document.querySelector('.equip_scroll_right');
-        const left_btn_disable = document.querySelector('.equip_scroll_left_disable');
-        const right_btn_disable = document.querySelector('.equip_scroll_right_disable');
+        const left_btn = document.querySelector(left);
+        const right_btn = document.querySelector(right);
+        const left_btn_disable = document.querySelector(left_dis);
+        const right_btn_disable = document.querySelector(right_dis);
         
         left_btn.style.display = 'none';
         left_btn_disable.style.display = 'flex';
@@ -682,11 +513,11 @@ window.addEventListener('DOMContentLoaded', () => {
         setCurrent(currentPos);
 
         function setCurrent(n) {
-            equip.forEach(item => {
+            block.forEach(item => {
                 item.style.display = 'none';
             });
             for (let i = 0; i < 4; i++) {
-            equip[n + i].style.display = 'flex';
+            block[n + i].style.display = 'flex';
             };
         };
         
@@ -703,8 +534,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         right_btn.addEventListener('click', () => {
             currentPos++;
-            if (currentPos == equip.length - 4) {
-                currentPos = equip.length - 4;
+            if (currentPos == block.length - 4) {
+                currentPos = block.length - 4;
                 right_btn.style.display = 'none';
                 right_btn_disable.style.display = 'flex';
             };
@@ -716,10 +547,123 @@ window.addEventListener('DOMContentLoaded', () => {
 
     };
 
+    function showCerts(experts_wrap, experts, json_data) {
+            
+        const expertsWrap = document.querySelector(experts_wrap);
+        let wrap = document.createElement('div');
+        wrap.classList.add('wrap');
+        wrap.style.display = 'none';
+        document.body.appendChild(wrap);
+        
 
-    let promise = new Promise((resolve, reject) => {
-        getDevices('.about_block_equip');
-    });
+        let certsWrap = document.createElement('div');
+        certsWrap.classList.add('serts_gallery');
+        certsWrap.style.display = 'none';
+        wrap.appendChild(certsWrap);
+
+        let imageFrame = document.createElement('div');
+        imageFrame.classList.add('serts_frame');
+        imageFrame.style.display = 'none';
+        wrap.appendChild(imageFrame);
+
+
+
+        wrap.addEventListener('click', (e) => {
+            if (e.target === wrap) {
+                document.body.style.overflow = '';
+                document.body.style.marginRight = `0px`;
+                wrap.style.display = 'none';
+            }
+        });
+
+        expertsWrap.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target;
+
+            if (imageFrame.firstChild != null) {
+                imageFrame.removeChild(imageFrame.firstChild);
+            };
+
+            let fc = certsWrap.firstChild;
+            while (fc) {
+                certsWrap.removeChild(fc);
+                fc = certsWrap.firstChild;
+            };
+
+            if (target && target.classList.contains('about_block_person_item') || 
+            target.parentNode.classList.contains('about_block_person_item')) {
+                document.body.style.overflow = 'hidden';
+                document.body.style.marginRight = `${scroll}px`;
+                wrap.style.display = 'flex';
+                experts.forEach((item, i) => {
+                    if ((item == target) || (item == target.parentNode)) {
+                        for (let k = 0; k < json_data.list[i].certs.split(',').length; k++) {
+                            let image = document.createElement('img');
+                            let path = json_data.list[i].certs.split(',')[k];
+                            image.setAttribute('src', path);
+                            certsWrap.appendChild(image);
+                        };
+                    };
+                });
+
+                certsWrap.style.display = 'flex';
+            };
+        });
+
+        certsWrap.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target;
+
+            let images = certsWrap.querySelectorAll('img');
+
+            images.forEach(item => {
+                if (target == item) {
+
+                    const bigImage = document.createElement('img');
+                    const path = target.getAttribute('src');
+                    bigImage.setAttribute('src', path);
+        
+                    if (imageFrame.firstChild != null) {
+                        imageFrame.removeChild(imageFrame.firstChild);
+                    };
+                    imageFrame.style.display = 'flex';
+                    imageFrame.appendChild(bigImage);
+        
+                };
+
+            });
+        });
+    };
+
+
+     // Personal
+    
+    async function personal() {
+        const personal = await getInfo('../db/person.json')
+        createBlock(personal.list, '.about_block_person', 'about_block_person_item', 'about_block_person_name', 'about_block_person_descr', '.person_scroll_right');
+        const personList = document.querySelectorAll('.about_block_person_item');
+        createGallery(personList, '.person_scroll_left', '.person_scroll_right', '.person_scroll_left_disable', '.person_scroll_right_disable');
+        showCerts('.about_block_person', personList, personal);
+    };
+    
+    // Equipment
+    
+    async function equipment() {
+        const devices = await getInfo('../db/devices.json')
+        createBlock(devices.list, '.about_block_equip', 'about_block_equip_item', 'about_block_equip_name', 'about_block_equip_descr', '.equip_scroll_right');
+        const deviceList = document.querySelectorAll('.about_block_equip_item');
+        createGallery(deviceList, '.equip_scroll_left', '.equip_scroll_right', '.equip_scroll_left_disable', '.equip_scroll_right_disable');
+    };
+    
+    // Norma Docs
+    
+    async function normaDocs() {
+        const documents = await getInfo('../db/documents.json')
+        createList(documents.list, '.nd_block');
+        ndTabs();
+
+    };
+
 
 
 
@@ -727,13 +671,11 @@ window.addEventListener('DOMContentLoaded', () => {
     arrowUp();
     slider();    
     aboutTabs();
-    ndTabs();
-    expertsGallery();
-    showSerts();
     showDocs();
-    promise
-        .then (equipmentGallery());
+    personal();
+    equipment();
     showGrats();
+    normaDocs();
     counters();
 });
 
